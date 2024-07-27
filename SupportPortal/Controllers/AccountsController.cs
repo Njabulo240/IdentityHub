@@ -4,6 +4,7 @@ using Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Shared.DTO.Account;
 using SupportPortal.JwtFeatures;
 
@@ -128,5 +129,27 @@ namespace SupportPortal.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
+        {
+            try
+            {
+                var users = await _userManager.Users.ToListAsync();
+                var userDtos = _mapper.Map<IEnumerable<UserDto>>(users);
+
+                foreach (var userDto in userDtos)
+                {
+                    var user = await _userManager.FindByIdAsync(userDto.Id);
+                    var roles = await _userManager.GetRolesAsync(user);
+                    userDto.Roles = roles;
+                }
+
+                return Ok(userDtos);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
     }
 }
