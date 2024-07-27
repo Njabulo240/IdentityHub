@@ -206,5 +206,31 @@ namespace SupportPortal.Controllers
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }
+
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            try
+            {
+                var user = await _userManager.FindByIdAsync(id);
+                if (user == null)
+                {
+                    return NotFound(new { Message = $"User with ID {id} not found." });
+                }
+
+                var result = await _userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    return NoContent();
+                }
+
+                return BadRequest(result.Errors);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
     }
 }
