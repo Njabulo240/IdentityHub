@@ -36,12 +36,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/scss/styles.scss",
+              "src/assets/css/fontawesome-all.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+                 "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {

@@ -1,0 +1,165 @@
+<header class="main-header w-100" [ngClass]="[
+    dark ? 'position-absolute' : '',
+    absolute ? 'position-absolute' : ''
+  ]">
+  <nav class="navbar navbar-expand-xl sticky-header z-10"
+    [ngClass]="[dark ? 'navbar-dark' : 'navbar-light', sticky ? 'affix' : '']" (scroll)="onscroll()">
+    <div class="container d-flex align-items-center justify-content-lg-between position-relative">
+      <a routerLink="/" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
+        <h1>S.Portal</h1>
+      </a>
+      <button class="navbar-toggler position-absolute right-0 border-0" id="#offcanvasWithBackdrop" role="button">
+        <span class="far fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+          aria-controls="offcanvasWithBackdrop"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center">
+        <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+          <li><a routerLink="/" class="nav-link">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white">
+              <div class="dropdown-grid rounded-custom width-full">
+                <div class="dropdown-grid-item">
+                  <h6 class="drop-heading">CORE SERVICES</h6>
+                  <a routerLink="/" class="dropdown-link">
+                    <span class="demo-list bg-primary rounded text-white fw-bold">
+                      <i class="fas fa-code"></i>
+                    </span>
+                    <div class="dropdown-info">
+                      <div class="drop-title">Custom web App Development</div>
+                      <p>Web product of high quality</p>
+                    </div>
+                  </a>
+                  <a routerLink="/" class="dropdown-link">
+                    <span class="demo-list bg-primary rounded text-white fw-bold">
+                      <i class="fas fa-mobile"></i>
+                    </span>
+                    <div class="dropdown-info">
+                      <div class="drop-title">Mobile App Development</div>
+                      <p>Make a smart solution for smartphones</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="dropdown-grid-item radius-right-side">
+                  <h6 class="drop-heading">OTHER SERVICES</h6>
+                  <a routerLink="/" class="dropdown-link">
+                    <span class="demo-list bg-primary rounded text-white fw-bold">
+                      <i class="fas fa-cloud"></i>
+                    </span>
+                    <div class="dropdown-info">
+                      <div class="drop-title">Cloud Engineering</div>
+                      <p>Improve business with cloud solutions</p>
+                    </div>
+                  </a>
+                  <a routerLink="/" class="dropdown-link">
+                    <span class="demo-list bg-primary rounded text-white fw-bold">
+                      <i class="fas fa-brain"></i>
+                    </span>
+                    <div class="dropdown-info">
+                      <div class="drop-title">AI Consulting services</div>
+                      <p>Improve business with AI insights</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a routerLink="/" class="nav-link">Career</a></li>
+          <li><a routerLink="/" class="nav-link">Contacts</a></li>
+        </ul>
+      </div>
+
+      <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block">
+        <a routerLink="/login" class="btn btn-link text-decoration-none me-2">Sign In</a>
+        <a routerLink="/contact" class="btn btn-primary">Get Started</a>
+      </div>
+
+      <!--offcanvas menu start-->
+      <div class="offcanvas offcanvas-end d-xl-none" tabindex="-1" id="offcanvasWithBackdrop">
+        <div class="offcanvas-header d-flex align-items-center mt-4">
+          <a routerLink="/" class="d-flex align-items-center mb-md-0 text-decoration-none">
+            <h1>S.Portal</h1>
+          </a>
+          <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="far fa-close"></i>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+            <li><a routerLink="/" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">Home</a></li>
+            <li><a routerLink="/about" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">About</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Services
+              </a>
+              <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white">
+                <div class="dropdown-grid rounded-custom width-full">
+                  <div class="dropdown-grid-item">
+                    <h6 class="drop-heading">CORE SERVICES</h6>
+                    <a routerLink="/software-engineering" class="dropdown-link">
+                      <span class="demo-list bg-primary rounded text-white fw-bold">
+                        <i class="fas fa-cogs"></i>
+                      </span>
+                      <div class="dropdown-info">
+                        <div class="drop-title">Custom Software Development</div>
+                      </div>
+                    </a>
+                    <a routerLink="/web-development" class="dropdown-link">
+                      <span class="demo-list bg-primary rounded text-white fw-bold">
+                        <i class="fas fa-code"></i>
+                      </span>
+                      <div class="dropdown-info">
+                        <div class="drop-title">Custom web App Development</div>
+                      </div>
+                    </a>
+                    <a routerLink="/mobile-development" class="dropdown-link">
+                      <span class="demo-list bg-primary rounded text-white fw-bold">
+                        <i class="fas fa-mobile"></i>
+                      </span>
+                      <div class="dropdown-info">
+                        <div class="drop-title">Mobile App Development</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dropdown-grid-item radius-right-side">
+                    <h6 class="drop-heading">OTHER SERVICES</h6>
+                    <a routerLink="/cloud-engineering" class="dropdown-link">
+                      <span class="demo-list bg-primary rounded text-white fw-bold">
+                        <i class="fas fa-cloud"></i>
+                      </span>
+                      <div class="dropdown-info">
+                        <div class="drop-title">Cloud Engineering</div>
+                      </div>
+                    </a>
+                    <a routerLink="/ai-technology" class="dropdown-link">
+                      <span class="demo-list bg-primary rounded text-white fw-bold">
+                        <i class="fas fa-brain"></i>
+                      </span>
+                      <div class="dropdown-info">
+                        <div class="drop-title">AI Consulting services</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a routerLink="/skolo" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">Skolo</a></li>
+            <li><a routerLink="/career" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">Career</a></li>
+            <!-- <li><a routerLink="/blog" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">Blog</a></li> -->
+            <li><a routerLink="/contacts" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">Contacts</a>
+            </li>
+          </ul>
+          <div class="action-btns mt-4 ps-3">
+            <a routerLink="/login" class="btn btn-outline-primary me-2">Sign In</a>
+            <a routerLink="/request-for-demo" class="btn btn-primary">Get Started</a>
+          </div>
+        </div>
+      </div>
+      <!--offcanvas menu end-->
+    </div>
+  </nav>
+</header>
