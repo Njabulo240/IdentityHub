@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportPortal", "SupportPor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{4252DD85-73C9-4425-8666-317279F98C6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{5038CB91-93B6-490D-9D55-408D2659E149}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4252DD85-73C9-4425-8666-317279F98C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4252DD85-73C9-4425-8666-317279F98C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4252DD85-73C9-4425-8666-317279F98C6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5038CB91-93B6-490D-9D55-408D2659E149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5038CB91-93B6-490D-9D55-408D2659E149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5038CB91-93B6-490D-9D55-408D2659E149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5038CB91-93B6-490D-9D55-408D2659E149}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
