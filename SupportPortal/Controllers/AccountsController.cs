@@ -46,5 +46,37 @@ namespace SupportPortal.Controllers
             return StatusCode(201);
         }
 
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] UserForAuthenticationDto userForAuthentication)
+        {
+            var user = await _userManager.FindByNameAsync(userForAuthentication.Email);
+            if (user == null)
+                return BadRequest("Invalid Request");
+
+            if (!await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
+            {
+                await _userManager.AccessFailedAsync(user);
+
+                if (await _userManager.IsLockedOutAsync(user))
+                {
+                    var content = $@"Your account is locked out. To reset the password click this link: {userForAuthentication.ClientURI}";
+                    var message = new Message(new string[] { userForAuthentication.Email },
+                        "Locked out account information", content, null);
+
+                    await _emailSender.SendEmailAsync(message);
+
+                    return Unauthorized(new AuthResponseDto { ErrorMessage = "The account is locked out" });
+                }
+
+                return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
+            }
+
+            var token = await _jwtHandler.GenerateToken(user);
+
+            await _userManager.ResetAccessFailedCountAsync(user);
+
+            return Ok(new AuthResponseDto { IsAuthSuccessful = true, Token = token });
+        }
     }
 }
