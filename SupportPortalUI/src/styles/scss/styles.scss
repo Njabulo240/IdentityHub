@@ -8,7 +8,6 @@
 
 // 3. Base stuff
 @import "base/base";
-@import "base/fonts";
 @import "base/typography";
 @import "base/helpers";
 
@@ -20,6 +19,3 @@
 
 // 6. Page-specific or demos styles
 @import "pages/home";
-
-// 7. Themes
-@import "themes/default";
