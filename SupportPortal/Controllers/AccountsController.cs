@@ -151,5 +151,28 @@ namespace SupportPortal.Controllers
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }
+
+        [HttpGet("{id}", Name = "UserById")]
+        public async Task<IActionResult> GetUser(string id)
+        {
+            try
+            {
+                var user = await _userManager.FindByIdAsync(id);
+                if (user == null)
+                {
+                    return NotFound(new { Message = $"User with ID {id} not found." });
+                }
+
+                var userDto = _mapper.Map<UserDto>(user);
+                var roles = await _userManager.GetRolesAsync(user);
+                userDto.Roles = roles;
+
+                return Ok(userDto);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
     }
 }
