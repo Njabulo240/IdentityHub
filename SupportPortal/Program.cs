@@ -1,3 +1,4 @@
+using EmailService;
 using Microsoft.AspNetCore.Identity;
 using NLog;
 using SupportPortal.Extensions;
@@ -22,6 +23,11 @@ builder.Services.AddAuthentication();
 
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opt =>
     opt.TokenLifespan = TimeSpan.FromHours(2));
+
+var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig);
+
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 builder.Services.AddControllers();
 
