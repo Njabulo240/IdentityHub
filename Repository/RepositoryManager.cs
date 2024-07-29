@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Repository.Data;
 
 namespace Repository
 {

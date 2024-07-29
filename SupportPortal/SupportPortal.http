@@ -1,6 +1,0 @@
-@SupportPortal_HostAddress = http://localhost:5239
-
-GET {{SupportPortal_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

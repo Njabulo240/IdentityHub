@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Repository;
+using Repository.Data;
 
 namespace SupportPortal.ContextFactory
 {
