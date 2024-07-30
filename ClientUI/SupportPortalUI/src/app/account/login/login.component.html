@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center">
+    <div class="col-12 col-lg-5">
+        <main class="form-signin">
+            <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+                <div class="text-center mb-4">
+                    <h3 class="mb-3 font-weight-normal">Login</h3>
+                </div>
+                <div class="form-floating mb-3">
+                    <input formControlName="userName" type="text" placeholder="Username (your email address)"
+                        class="form-control"
+                        [class.is-invalid]="submitted && loginForm.get('userName')?.errors">
+                    <label for="userName">Username (your email address)</label>
+                    <span class="text-danger" *ngIf="submitted && loginForm.get('userName')?.hasError('required')">
+                        Username is required
+                    </span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input formControlName="password" type="password" placeholder="Password" class="form-control"
+                    [class.is-invalid]="submitted && loginForm.get('userName')?.errors">
+                    <label for="password">Password</label>
+                    <span class="text-danger" *ngIf="submitted && loginForm.get('password')?.hasError('required')">
+                        Password is required
+                    </span>
+                </div>
+
+                <div class="form-floatin" *ngIf="errorMessages.length > 0">
+                    <app-validation-messages [errorMessages]="errorMessages"></app-validation-messages>
+                    <a class="btn btn-link" (click)="resendEmailConfirmationLink()"
+                        *ngIf="errorMessages[0].includes('Please confirm your email')">
+                        Click here to resend email confirmation link in case you didn't receive it.
+                    </a>
+                </div>
+
+                <div class="d-grid mt-4 px-1">
+                    <button class="btn btn-lg btn-info" type="submit">Log in</button>
+                </div>
+            </form>
+
+            <div class="mt-4 text-center">
+                <a class="btn btn-link" routerLink="/account/send-email/forgot-username-or-password">
+                    <h6>Forgot username or password</h6>
+                </a>
+            </div>
+
+            <div class="row d-flex justify-content-center mt-3">
+                <div class="col-4">
+                    <hr>
+                </div>
+                <div class="col-4 text-center">OR Login using</div>
+                <div class="col-4">
+                    <hr>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between my-3">
+                <div #googleButton></div>
+                <button style="width: 180px;" class="btn btn-primary btn-sm" (click)="loginWithFacebook()">
+                    Facebook
+                </button>
+            </div>
+        </main>
+    </div>
+</div>

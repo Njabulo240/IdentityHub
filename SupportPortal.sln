@@ -2,17 +2,17 @@
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupportPortal", "src\SupportPortal\SupportPortal.csproj", "{19FA8D29-FF08-4439-BAE3-8B7231224DDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupportPortal", "SupportPortalAPI\SupportPortal\SupportPortal.csproj", "{19FA8D29-FF08-4439-BAE3-8B7231224DDA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "src\Contracts\Contracts.csproj", "{4252DD85-73C9-4425-8666-317279F98C6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "SupportPortalAPI\Contracts\Contracts.csproj", "{4252DD85-73C9-4425-8666-317279F98C6B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "src\Entities\Entities.csproj", "{BFCE5BE8-E52B-4E56-8160-7E22E6627386}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "SupportPortalAPI\Entities\Entities.csproj", "{BFCE5BE8-E52B-4E56-8160-7E22E6627386}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "src\LoggerService\LoggerService.csproj", "{8F5486DA-0FEF-46A3-8046-9C90860A7D0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "SupportPortalAPI\LoggerService\LoggerService.csproj", "{8F5486DA-0FEF-46A3-8046-9C90860A7D0B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "src\Repository\Repository.csproj", "{627134D3-CD49-41F4-879B-C70939677896}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "SupportPortalAPI\Repository\Repository.csproj", "{627134D3-CD49-41F4-879B-C70939677896}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "src\Shared\Shared.csproj", "{F1C0EF20-E658-4E33-858F-A3845422EF33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "SupportPortalAPI\Shared\Shared.csproj", "{F1C0EF20-E658-4E33-858F-A3845422EF33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

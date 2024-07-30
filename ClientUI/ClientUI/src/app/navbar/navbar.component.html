@@ -1,0 +1,48 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="nav-brand">
+                <img src="./assets/images/logo.png" class="me-3" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" (click)="toggleCollapsed()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" [ngClass]="{'collapse': collapsed}">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}">Home</a>
+                    </li>
+                    <ng-container *ngIf="accountService.user$ | async">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/play" routerLinkActive="active">Play</a>
+                        </li>
+                        <li class="nav-item" *appUserHasRole="['Admin']">
+                            <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+                        </li>
+                    </ng-container>
+                </ul>
+
+                <ul class="navbar-nav" *ngIf="(accountService.user$ | async) === null">
+                    <li class="nav-item">
+                        <a class="btn btn-secondary mx-2" routerLink="/account/register" routerLinkActive="active">
+                            Create account
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" routerLink="/account/login" routerLinkActive="active">
+                            Login
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center" *ngIf="(accountService.user$ | async) as user">
+                    <a class="text-white" style="text-decoration: none; cursor: pointer;">
+                        Hi <span class="h3 text-warning">{{user.firstName | titlecase}}</span>
+                    </a>
+                    <a class="btn btn-secondary ms-2" (click)="logout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
