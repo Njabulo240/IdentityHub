@@ -14,7 +14,7 @@ namespace SupportPortal.ContextFactory
                 .Build();
 
             var builder = new DbContextOptionsBuilder<Context>()
-                .UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+                .UseSqlServer(configuration.GetConnectionString("sqlConnection"),
                 b => b.MigrationsAssembly("SupportPortal"));
 
             return new Context(builder.Options);

@@ -91,7 +91,8 @@ namespace SupportPortal.Controllers
 
             await _userManager.ResetAccessFailedCountAsync(user);
             await _userManager.SetLockoutEndDateAsync(user, null);
-
+            user.IsOnline = true;
+            // var jwtToken = await _jwtService.CreateJWT(user);
             return await CreateApplicationUserDto(user);
         }
 
@@ -338,6 +339,16 @@ namespace SupportPortal.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 JWT = await _jwtService.CreateJWT(user),
+                User = new UserDetailsDto
+                {
+
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    IsOnline = user.IsOnline,
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    Email = user.Email,
+                }
             };
         }
 

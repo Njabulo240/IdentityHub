@@ -4,6 +4,7 @@ using Repository.Services;
 using Shared;
 using SupportPortal;
 using SupportPortal.Extensions;
+using SupportPortal.Hubs;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureSqlContext(builder.Configuration);
+builder.Services.ConfigureRepositoryManager();
 builder.Services.AddScoped<JWTService>();
 builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<ContextSeedService>();
@@ -21,6 +23,8 @@ builder.Services.ConfigureCors(builder.Configuration);
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.AddCors();
+builder.Services.AddSignalR();
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
@@ -72,6 +76,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<ChatHub>("/message");
 
 #region ContextSeed
 using var scope = app.Services.CreateScope();

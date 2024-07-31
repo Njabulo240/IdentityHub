@@ -66,7 +66,7 @@ namespace Repository
             return await FindAll(trackChanges).ToListAsync();
         }
 
-        public async Task<IEnumerable<Message>> GetReceivedMessages(Guid userId, bool trackChanges)
+        public async Task<IEnumerable<Message>> GetReceivedMessages(string userId, bool trackChanges)
         {
             return await FindByCondition(c => c.Receiver.Equals(userId), trackChanges)
              .ToListAsync();

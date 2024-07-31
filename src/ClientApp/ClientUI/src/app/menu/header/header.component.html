@@ -15,9 +15,8 @@
       <div class="collapse navbar-collapse justify-content-center">
         <ul class="nav col-12 col-md-auto justify-content-center main-menu">
           <li><a routerLink="/" class="nav-link">Home</a></li>
-          <li><a routerLink="/" class="nav-link">Services</a></li>
-          <li><a routerLink="/" class="nav-link">About us</a></li>
-          <li><a routerLink="/" class="nav-link">Career</a></li>
+          <li *appUserHasRole="['Admin']"><a routerLink="/admin" class="nav-link">Admin</a></li>
+          <li *appUserHasRole="['Admin']"><a routerLink="/" class="nav-link">Support</a></li>
           <li><a routerLink="/" class="nav-link">Contacts</a></li>
         </ul>
       </div>

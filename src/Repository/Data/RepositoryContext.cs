@@ -1,4 +1,5 @@
 ﻿using Entities.Identity;
+using Entities.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,5 +11,7 @@ namespace Repository.Data
         {
 
         }
+
+        public DbSet<Message> Messages { get; set; }
     }
 }

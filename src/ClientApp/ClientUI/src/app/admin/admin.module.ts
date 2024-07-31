@@ -4,6 +4,7 @@ import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AddEditMemberComponent } from './add-edit-member/add-edit-member.component';
 import { SharedModule } from '../shared/shared.module';
+import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -15,7 +16,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    MenuModule
   ]
 })
 export class AdminModule { }
