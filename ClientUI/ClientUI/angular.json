@@ -26,12 +26,13 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/bootswatch/dist/cerulean/bootstrap.css",
+              "src/assets/css/fontawesome-all.min.css",
+              "src/styles/scss/styles.scss",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+             "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
             "browser": "src/main.ts"
           },
           "configurations": {

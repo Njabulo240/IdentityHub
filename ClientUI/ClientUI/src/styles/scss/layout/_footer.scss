@@ -1,0 +1,55 @@
+.footer-bottom {
+  position: relative;
+  display: block;
+  border-top: 1px solid rgba(248, 249, 250, 0.05);
+}
+.footer-bottom.footer-light {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.copyright-text p {
+  font-size: 14px;
+  color: #65676d;
+  font-weight: $font-weight-medium-light;
+  font-family: $headings-font-family;
+}
+.copyright-text p a {
+  color: $body-color;
+}
+
+.footer-light .copyright-text p {
+  color: #65676d;
+}
+.bg-dark .copyright-text p,
+.bg-gradient .copyright-text p {
+  color: $gray-300;
+}
+.bg-dark .copyright-text p a,
+.bg-gradient .copyright-text p a {
+  color: $secondary;
+}
+.copyright-text p a:hover {
+  color: $primary;
+}
+.footer-social-list li a {
+  display: block;
+  width: 36px;
+  height: 36px;
+  line-height: 32px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  color: #65676d;
+  border-radius: 4px;
+  transition: $transition-base;
+}
+.bg-dark .footer-social-list li a,
+.bg-gradient .footer-social-list li a {
+  color: $gray-300;
+}
+.footer-light .footer-social-list li a {
+  border: 2px solid rgba(0, 0, 0, 0.12);
+}
+.footer-social-list li a:hover {
+  background: $primary;
+  color: $white;
+  border-color: $primary;
+}
