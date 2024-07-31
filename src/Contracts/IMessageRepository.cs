@@ -8,6 +8,6 @@ namespace Contracts
         Task<IEnumerable<Message>> GetReceivedMessages(Guid userId, bool trackChanges);
         void CreateMessage(Message message);
         void UpdateMessage(Message message);
-        void DeleteMessage(Message message);
+        void DeleteMessage(MessageDeleteModel messageDeleteModel);
     }
 }

@@ -8,22 +8,18 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<!--to authenticate user using JWT Bearer-->
 		<PackageReference Include="Google.Apis.Auth" Version="1.60.0" />
 		<PackageReference Include="Mailjet.Api" Version="3.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
-		<!--to be able to derive from IdentityDbContext inside our context.cs-->
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
-		<!--to be able to communicate with SQL server via EF-->
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
-		<!--to be able to add/remove migration to our SQL server-->
+		<PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-		<!--to be able to create, serialize and validate JSON web tokens-->
 	</ItemGroup>
 
   <ItemGroup>
