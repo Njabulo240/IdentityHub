@@ -74,14 +74,10 @@ namespace SupportPortal.Extensions
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        // Validate the token based on the key we have provided inside appsettings.json JWT:Key
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Key")),
-                        // The issuer (who is issuing the JWT)
                         ValidIssuer = jwtSettings["Issuer"],
-                        // Validate the issuer (whoever is issuing the JWT)
                         ValidateIssuer = true,
-                        // Don't validate audience (depending on your needs)
                         ValidateAudience = false
                     };
                 });
