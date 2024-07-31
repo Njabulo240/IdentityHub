@@ -2,6 +2,7 @@
 {
     public interface IRepositoryManager
     {
-        void SaveAsync();
+        IMessageRepository Message { get; }
+        void Save();
     }
 }
