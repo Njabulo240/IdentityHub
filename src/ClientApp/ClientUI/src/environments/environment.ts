@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    appUrl: '',
+    appUrl: 'http://localhost:5296',
     googleClientId: '',
     facebookAppId: '',
     userKey: 'identityHubUser'
