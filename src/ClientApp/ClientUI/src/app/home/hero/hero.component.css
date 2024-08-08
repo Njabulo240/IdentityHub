@@ -32,9 +32,9 @@
   }
   
   .greeting-text {
-    font-size: 70px;
+    font-size: 40px;
     line-height: 1.1;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   
   .greeting-text-p {
@@ -144,9 +144,22 @@
   }
   .greeting-text-p {
     font-size: 22px;
-    line-height: 40px;
+    line-height: 30px;
     margin-top: 3rem;
     margin-bottom: 2rem;
+  }
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.5rem; 
+    list-style-type: none; 
+    padding: 0; 
+  }
+  
+  @media (max-width: 768px) { 
+    .features-list {
+      grid-template-columns: 1fr; 
+    }
   }
   
   

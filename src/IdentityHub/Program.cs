@@ -126,8 +126,10 @@ app.UseHttpsRedirection();
 // Authentication verifies the identity of a user or service, and authorization determines their access rights.
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.MapControllers();
+app.MapFallbackToController("Index", "Fallback");
 
 #region ContextSeed
 using var scope = app.Services.CreateScope();

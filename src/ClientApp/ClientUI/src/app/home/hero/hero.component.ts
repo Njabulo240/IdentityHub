@@ -9,7 +9,7 @@ export class HeroComponent implements OnInit {
   details = {
     title: "Identity Hub",
     subTitle: "Your central platform for managing user identities and authentication.",
-   description: "Built using ASP.NET and Angular, provides a secure and scalable solution for handling user accounts, authentication, and authorization across your applications.",
+   description: "Built using ASP.NET and Angular, provides a secure and scalable solution for handling user accounts, authentication, and authorization.",
     features: [
       "User Registration and Login",
       "Password Recovery and Reset",
@@ -20,7 +20,7 @@ export class HeroComponent implements OnInit {
       "Social Media Login",
       "Token Refresh",
       "Email Integration",
-      "Entity Framework Core with SQL Server",
+      "Entity Framework Core",
       "API Documentation with Swagger"
     ],
     documentationLink: "https://yourappdocumentationlink.com",

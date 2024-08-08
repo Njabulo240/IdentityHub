@@ -8,6 +8,7 @@ import { User } from 'src/app/shared/models/account/user';
 import { CredentialResponse } from 'google-one-tap';
 import jwt_decode from 'jwt-decode';
 import { DOCUMENT } from '@angular/common';
+import { environment } from 'src/environments/environment.development';
 declare const FB: any;
 
 @Component({
@@ -95,7 +96,7 @@ export class RegisterComponent implements OnInit {
     (window as any).onGoogleLibraryLoad = () => {
       // @ts-ignore
       google.accounts.id.initialize({
-        client_id: '187373295394-he32hkahbth3jo0e44jtva56q1n22e5i.apps.googleusercontent.com',
+        client_id: environment.googleClientId,
         callback: this.googleCallBack.bind(this),
         auto_select: false,
         cancel_on_tap_outside: true
