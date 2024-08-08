@@ -23,13 +23,8 @@ export class HeroComponent implements OnInit {
       "Entity Framework Core",
       "API Documentation with Swagger"
     ],
-    documentationLink: "https://yourappdocumentationlink.com",
-    supportLink: "https://yourappsupportlink.com",
-    socialMediaLinks: {
-      facebook: "https://facebook.com/yourapp",
-      google: "https://accounts.google.com/yourapp",
-      twitter: "https://twitter.com/yourapp"
-    },
+    documentationLink: "https://github.com/Njabulo240/IdentityHub",
+    supportLink: "https://github.com/Njabulo240/IdentityHub",
     tokenRefreshInfo: "Tokens are refreshed automatically upon expiration to ensure a seamless user experience."
   };
 
