@@ -1,4 +1,4 @@
-<header class="main-header w-100" [ngClass]="[
+<!-- <header class="main-header w-100" [ngClass]="[
     dark ? 'position-absolute' : '',
     absolute ? 'position-absolute' : ''
   ]">
@@ -16,7 +16,7 @@
         <ul class="nav col-12 col-md-auto justify-content-center main-menu">
           <li><a routerLink="/" class="nav-link">Home</a></li>
           <li *appUserHasRole="['Admin']"><a routerLink="/admin" class="nav-link">Admin</a></li>
-          <li *appUserHasRole="['Admin']"><a routerLink="/" class="nav-link">Support</a></li>
+          <li *appUserHasRole="['Admin']"><a routerLink="/support" class="nav-link">Support</a></li>
           <li><a routerLink="/" class="nav-link">Contacts</a></li>
         </ul>
       </div>
@@ -64,4 +64,81 @@
       </div>
     </div>
   </nav>
-</header>
+</header> -->
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Account-Owner Home</a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapseNav" [collapse]="!isCollapsed" [isAnimated]="true">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/company/companies']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Companies </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/privacy']" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}"> Privacy </a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <ul *ngIf="(accountService.user$ | async) === null" class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/account/login" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/account/register" routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}">Register</a>
+          </li>
+        </ul>
+        <ul *ngIf="(accountService.user$ | async) as user" class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="text-white" style="text-decoration: none; cursor: pointer;">
+              Hi <span class="h3 text-warning">{{user.firstName | titlecase}}</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-link" style="color: #ffffff80;" (click)="logout()">Logout</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</nav> -->
+
+<div>
+  <header class="header" wmAnimate="landing" aos speed="normal">
+    <a href="" class="logo">
+      <span class="logo-name">Identity Hub</span>
+    </a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn">
+      <span class="navicon"></span>
+    </label>
+    <ul class="menu">
+      <li>
+        <a href="#skills">About</a>
+      </li>
+      <li>
+        <a href="#skills">Skills</a>
+      </li>
+      <li>
+        <a href="#education">Education</a>
+      </li>
+      <li>
+        <a href="#projects">Projects</a>
+      </li>
+      <li>
+        <a href="#experience">Experiences</a>
+      </li>
+      <li>
+        <a href="#contact">Contact Me</a>
+      </li>
+    </ul>
+  </header>
+</div>

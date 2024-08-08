@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from '../shared/shared.module';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     RouterModule,
     SharedModule,
+    CollapseModule.forRoot(),
   ],
   declarations: [
     HeaderComponent,

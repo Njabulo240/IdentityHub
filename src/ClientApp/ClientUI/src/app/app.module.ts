@@ -10,6 +10,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { MenuModule } from './menu/menu.module';
 import { HomeModule } from './home/home.module';
+import { MessageService } from './shared/service/message.service';
 
 @NgModule({
   declarations: [
@@ -22,10 +23,11 @@ import { HomeModule } from './home/home.module';
     SharedModule,
     BrowserAnimationsModule,
     MenuModule,
-    HomeModule
+    HomeModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

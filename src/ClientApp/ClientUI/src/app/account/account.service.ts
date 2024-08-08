@@ -109,4 +109,7 @@ export class AccountService {
     localStorage.setItem(environment.userKey, JSON.stringify(user));
     this.userSource.next(user);
   }
+  getAll() {
+    return this.http.get(environment.appUrl + 'api/account');
+  }
 }
