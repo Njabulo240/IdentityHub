@@ -1,0 +1,36 @@
+.card {
+    border: 1px solid #e0e0e0; /* Lighter border for a softer look */
+    border-radius: 0.5rem; /* Slightly more rounded corners */
+    background-color: #ffffff; /* Ensures the card background is white */
+}
+
+.card-body {
+    padding: 1.5rem; /* More padding for better spacing */
+}
+
+.img-fluid {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 0.5rem; /* Rounded corners for the image */
+}
+
+.lead {
+    font-size: 1.5rem; /* Slightly smaller than 'large-text' for better readability */
+    font-weight: 300; /* Light weight for a modern look */
+}
+
+.text-muted {
+    color: #6c757d; 
+}
+
+.mt-3 {
+    margin-top: 1rem; /* Adds spacing between the message and note */
+}
+
+.shadow-lg {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a more pronounced effect */
+}
+
+.border-light {
+    border-color: #e0e0e0; /* Matches the card border color */
+}

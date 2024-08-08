@@ -12,9 +12,9 @@
       <li><a routerLink="/">Home</a></li>
       <ng-container *ngIf="accountService.user$ | async">
         <li *appUserHasRole="['Admin']"><a routerLink="/admin">Admin</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a routerLink="/play">Plays</a></li>
       </ng-container>
-      <li><a href="#education">Contact</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
 
     </ul>
 

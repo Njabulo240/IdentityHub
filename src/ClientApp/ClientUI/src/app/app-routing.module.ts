@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './shared/components/errors/not-found/not-found.component';
 import { PlayComponent } from './play/play.component';
 import { AuthorizationGuard } from './shared/guards/authorization.guard';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./home/home.module').then(module => module.HomeModule) },
@@ -15,9 +16,9 @@ const routes: Routes = [
       { path: 'play', component: PlayComponent },
       { path: 'admin', loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule) },
     
-    ]
+    ],
   },
-  // Implenting lazy loading by the following format
+  { path: 'contact', component: ContactComponent },
   { path: 'account', loadChildren: () => import('./account/account.module').then(module => module.AccountModule) },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' }

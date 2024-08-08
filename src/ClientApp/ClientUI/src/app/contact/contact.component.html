@@ -1,0 +1,26 @@
+<div class="container my-3">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+          <!-- Card for contact info -->
+          <div class="card text-center shadow-sm">
+              <div class="card-body">
+                  <h1 class="heading card-title">{{contactInfo.title}}</h1>
+                  <p class="subTitle card-subtitle">{{contactInfo.subtitle}}</p>
+                  <div class="contact-text-div">
+                      <p>
+                          <a class="contact-detail" href="{{'tel:' + contactInfo.number}}">
+                              {{contactInfo.number}}
+                          </a>
+                      </p>
+                      <p>
+                          <a class="contact-detail-email" href="{{'mailto:' + contactInfo.email_address}}">
+                              {{contactInfo.email_address}}
+                          </a>
+                      </p>
+                      <app-social-media></app-social-media>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

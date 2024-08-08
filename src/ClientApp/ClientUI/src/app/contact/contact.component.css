@@ -1,0 +1,25 @@
+.card {
+    border: 1px solid #ddd; 
+    border-radius: 0.25rem; 
+}
+.card-body {
+    padding: 1.25rem; 
+}
+.card-title {
+    font-size: 2rem; 
+    margin-bottom: 0.5rem; 
+}
+.card-subtitle {
+    font-size: 1.25rem; 
+    margin-bottom: 1rem; /
+}
+.contact-detail, .contact-detail-email {
+    font-size: 1.1rem; 
+    display: block; 
+    margin-bottom: 0.5rem; 
+    color: #007bff; 
+    text-decoration: none; 
+}
+.contact-detail:hover, .contact-detail-email:hover {
+    text-decoration: underline; 
+}

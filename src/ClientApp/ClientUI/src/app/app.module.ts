@@ -11,12 +11,14 @@ import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { MenuModule } from './menu/menu.module';
 import { HomeModule } from './home/home.module';
 import { MessageService } from './shared/service/message.service';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
-    PlayComponent
-  ],
+    PlayComponent,
+    ContactComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

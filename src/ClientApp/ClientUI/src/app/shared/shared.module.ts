@@ -8,21 +8,25 @@ import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@an
 import { NotificationComponent } from './components/modals/notification/notification.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UserHasRoleDirective } from './directives/user-has-role.directive';
+import { SocialMediaComponent } from './components/social-media/social-media.component';
 
 
 @NgModule({ declarations: [
         NotFoundComponent,
         ValidationMessagesComponent,
         NotificationComponent,
-        UserHasRoleDirective
+        UserHasRoleDirective,
+        SocialMediaComponent
     ],
     exports: [
         RouterModule,
         ReactiveFormsModule,
         HttpClientModule,
         ValidationMessagesComponent,
-        UserHasRoleDirective
-    ], imports: [CommonModule,
+        UserHasRoleDirective,
+        SocialMediaComponent
+    ], imports: [
+        CommonModule,
         RouterModule,
         ReactiveFormsModule,
         ModalModule.forRoot()], providers: [provideHttpClient(withInterceptorsFromDi())] })

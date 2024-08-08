@@ -1,3 +1,17 @@
-<p *ngIf="message">
-    {{message}}
-</p>
+<div class="container my-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 mb-4">
+            <div class="card text-center shadow-lg border-light">
+                <div class="card-body">
+                    <p class="card-text lead" *ngIf="message">
+                        {{ message }}
+                    </p>
+                    <p class="card-text text-muted mt-3">
+                        Note: This message is visible only to logged-in users.
+                    </p>
+                    <img src="../../assets/img/5639294.jpg" alt="Identity Management Dashboard" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
