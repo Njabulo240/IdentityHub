@@ -71,7 +71,7 @@
           "options": {
             "sslCert": "ssl/localhost.pem",
             "sslKey": "ssl/localhost-key.pem",
-            "ssl": false
+            "ssl": true
           },
           "configurations": {
             "production": {

@@ -1,5 +1,6 @@
+<div class="mt-5">
 <div class="d-flex justify-content-center" *ngIf="provider && access_token && userId">
-    <div class="col-12 col-lg-5">
+    <div class="card col-12 col-lg-5">
         <main class="form-signin">
             <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
                 <div class="text-center mb-4">
@@ -44,4 +45,5 @@
             </form>
         </main>
     </div>
+</div>
 </div>

@@ -131,7 +131,7 @@
         <a href="#projects">Projects</a>
       </li>
       <li>
-        <a href="#education">Contact me</a>
+        <a href="#education">Contact</a>
       </li>
        <!-- Conditionally show login/register or user info based on authentication status -->
        <ng-container *ngIf="(accountService.user$ | async) === null">
@@ -139,14 +139,14 @@
           <button class="auth-button login-button" routerLink="/account/login">Login</button>
         </li>
       </ng-container>
-      <ng-template *ngIf="(accountService.user$ | async) as user">
+      <ng-container *ngIf="(accountService.user$ | async) as user">
         <li>
-          <span class="user-name">{{user.firstName | titlecase}}</span>
+          <a >{{user.firstName | titlecase}}</a>
         </li>
-        <li>
-          <button class="logout-button" (click)="logout()">Logout</button>
+        <li class="auth-buttons">
+          <button class="auth-button logout-button" (click)="logout()">LogOut</button>
         </li>
-      </ng-template>
+      </ng-container>
     </ul>
   </header>
 </div>
