@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<Context>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 // be able to inject JWTService class inside our Controllers
