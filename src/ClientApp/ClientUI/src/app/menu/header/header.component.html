@@ -1,152 +1,36 @@
-<!-- <header class="main-header w-100" [ngClass]="[
-    dark ? 'position-absolute' : '',
-    absolute ? 'position-absolute' : ''
-  ]">
-  <nav class="navbar navbar-expand-xl sticky-header z-10"
-    [ngClass]="[dark ? 'navbar-dark' : 'navbar-light', sticky ? 'affix' : '']" (scroll)="onscroll()">
-    <div class="container d-flex align-items-center justify-content-lg-between position-relative">
-      <a routerLink="/" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
-        <h1>S.Portal</h1>
-      </a>
-      <button class="navbar-toggler position-absolute right-0 border-0" id="#offcanvasWithBackdrop" role="button">
-        <span class="far fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
-          aria-controls="offcanvasWithBackdrop"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center">
-        <ul class="nav col-12 col-md-auto justify-content-center main-menu">
-          <li><a routerLink="/" class="nav-link">Home</a></li>
-          <li *appUserHasRole="['Admin']"><a routerLink="/admin" class="nav-link">Admin</a></li>
-          <li *appUserHasRole="['Admin']"><a routerLink="/support" class="nav-link">Support</a></li>
-          <li><a routerLink="/" class="nav-link">Contacts</a></li>
-        </ul>
-      </div>
-
-      <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block"
-        *ngIf="(accountService.user$ | async) === null">
-
-        <a routerLink="/account/register" class="btn border-pink text-pink mb-3"
-        >Sign up</a
-      >
-      <a routerLink="/account/login" class="btn btn-primary bg-pink me-3 mb-3">Sign in</a>
-      </div>
-
-      <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block"
-        *ngIf="(accountService.user$ | async) as user">
-        <a class="text-white" style="text-decoration: none; cursor: pointer;">
-          Hi <span class="h3 text-warning">{{user.firstName | titlecase}}</span>
-        </a>
-        <a class="btn btn-secondary ms-2" (click)="logout()">Logout</a>
-      </div>
-
-
-      <div class="offcanvas offcanvas-end d-xl-none" tabindex="-1" id="offcanvasWithBackdrop">
-        <div class="offcanvas-header d-flex align-items-center mt-4">
-          <a routerLink="/" class="d-flex align-items-center mb-md-0 text-decoration-none">
-            <h1>S.Portal</h1>
-          </a>
-          <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
-            <i class="far fa-close"></i>
-          </button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="nav col-12 col-md-auto justify-content-center main-menu">
-            <li><a routerLink="/" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">Home</a></li>
-            <li><a routerLink="/" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">Services</a></li>
-            <li><a routerLink="/" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">About us</a></li>
-            <li><a routerLink="/" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">Career</a></li>
-            <li><a routerLink="/" class="nav-link" data-bs-dismiss="offcanvas" aria-label="Close">Contacts</a></li>
-          </ul>
-          <div class="action-btns mt-4 ps-3">
-            <a routerLink="/login" class="btn btn-outline-primary me-2">Sign In</a>
-            <a routerLink="/" class="btn btn-primary">Get Started</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header> -->
-
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active"
-      [routerLinkActiveOptions]="{exact: true}">Account-Owner Home</a>
-    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
-      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapseNav" [collapse]="!isCollapsed" [isAnimated]="true">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/company/companies']" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">Companies </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/privacy']" routerLinkActive="active" 
-            [routerLinkActiveOptions]="{exact: true}"> Privacy </a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <ul *ngIf="(accountService.user$ | async) === null" class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/account/login" routerLinkActive="active" 
-              [routerLinkActiveOptions]="{exact: true}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/account/register" routerLinkActive="active" 
-              [routerLinkActiveOptions]="{exact: true}">Register</a>
-          </li>
-        </ul>
-        <ul *ngIf="(accountService.user$ | async) as user" class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="text-white" style="text-decoration: none; cursor: pointer;">
-              Hi <span class="h3 text-warning">{{user.firstName | titlecase}}</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-link" style="color: #ffffff80;" (click)="logout()">Logout</button>
-          </li>
-        </ul>
-      </form>
-    </div>
-  </div>
-</nav> -->
 
 <div>
   <header class="header" wmAnimate="landing" aos speed="normal">
     <a href="" class="logo">
-      <span class="logo-name">Identity Hub</span>
+      <img class="logo-name" src="../../../assets/img/matech-logo.svg" alt="Logo">
     </a>
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn">
       <span class="navicon"></span>
     </label>
     <ul class="menu">
-      <li>
-        <a href="#skills">Home</a>
-      </li>
-      <li>
-        <a href="#skills">Admin</a>
-      </li>
-      <li>
-        <a href="#projects">Projects</a>
-      </li>
-      <li>
-        <a href="#education">Contact</a>
-      </li>
-       <!-- Conditionally show login/register or user info based on authentication status -->
-       <ng-container *ngIf="(accountService.user$ | async) === null">
+      <li><a routerLink="/">Home</a></li>
+      <ng-container *ngIf="accountService.user$ | async">
+        <li *appUserHasRole="['Admin']"><a routerLink="/admin">Admin</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ng-container>
+      <li><a href="#education">Contact</a></li>
+
+    </ul>
+
+    <ul class="menu">
+      <ng-container *ngIf="(accountService.user$ | async) === null">
         <li class="auth-buttons">
           <button class="auth-button login-button" routerLink="/account/login">Login</button>
+          <button class="auth-button login-button" routerLink="/account/register">Register</button>
         </li>
       </ng-container>
       <ng-container *ngIf="(accountService.user$ | async) as user">
-        <li>
-          <a >{{user.firstName | titlecase}}</a>
-        </li>
+        <li><a>{{user.firstName | titlecase}}</a></li>
         <li class="auth-buttons">
           <button class="auth-button logout-button" (click)="logout()">LogOut</button>
         </li>
       </ng-container>
-    </ul>
+      </ul>
   </header>
 </div>
