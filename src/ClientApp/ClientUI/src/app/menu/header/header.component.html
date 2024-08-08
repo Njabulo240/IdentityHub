@@ -122,23 +122,31 @@
     </label>
     <ul class="menu">
       <li>
-        <a href="#skills">About</a>
+        <a href="#skills">Home</a>
       </li>
       <li>
-        <a href="#skills">Skills</a>
-      </li>
-      <li>
-        <a href="#education">Education</a>
+        <a href="#skills">Admin</a>
       </li>
       <li>
         <a href="#projects">Projects</a>
       </li>
       <li>
-        <a href="#experience">Experiences</a>
+        <a href="#education">Contact me</a>
       </li>
-      <li>
-        <a href="#contact">Contact Me</a>
-      </li>
+       <!-- Conditionally show login/register or user info based on authentication status -->
+       <ng-container *ngIf="(accountService.user$ | async) === null">
+        <li class="auth-buttons">
+          <button class="auth-button login-button" routerLink="/account/login">Login</button>
+        </li>
+      </ng-container>
+      <ng-template *ngIf="(accountService.user$ | async) as user">
+        <li>
+          <span class="user-name">{{user.firstName | titlecase}}</span>
+        </li>
+        <li>
+          <button class="logout-button" (click)="logout()">Logout</button>
+        </li>
+      </ng-template>
     </ul>
   </header>
 </div>

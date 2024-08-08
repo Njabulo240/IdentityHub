@@ -29,10 +29,8 @@ import { AccountService } from 'src/app/account/account.service';
   ]
 })
 export class HeaderComponent implements OnInit {
-  isCollapsed: boolean = false;
 
   constructor(public accountService: AccountService) { }
-
 
   ngOnInit(): void {}
 

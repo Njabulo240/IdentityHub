@@ -157,3 +157,42 @@ p {
     font-size: 12px;
   }
 }
+
+.auth-button {
+  background-color: transparent;
+  border: 2px solid #55198b; 
+  color: #55198b; 
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #55198b; 
+  color: white; 
+}
+
+.login-button {
+  border-color: #55198b; 
+  color: #55198b; 
+}
+
+.login-button:hover {
+  background-color: #55198b; 
+}
+
+
+.logout-button {
+  border-color: #dc3545; 
+  color: #dc3545; 
+}
+
+.logout-button:hover {
+  background-color: #dc3545; 
+}

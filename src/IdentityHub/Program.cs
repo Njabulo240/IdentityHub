@@ -1,16 +1,13 @@
-using Contracts;
-using Entities.Identity;
+
+using IdentityHub;
+using IdentityHub.Data;
+using IdentityHub.Models;
+using IdentityHub.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Repository;
-using Repository.Data;
-using Repository.Services;
-using Shared;
-using IdentityHub;
-using IdentityHub.Hubs;
 using System.Security.Claims;
 using System.Text;
 
@@ -22,9 +19,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSignalR();
-builder.Services.AddAutoMapper(typeof(Program));
-builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 builder.Services.AddDbContext<Context>(options =>
 {
@@ -35,8 +29,6 @@ builder.Services.AddDbContext<Context>(options =>
 builder.Services.AddScoped<JWTService>();
 builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<ContextSeedService>();
-builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
-builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 
 // defining our IdentityCore Service
 builder.Services.AddIdentityCore<User>(options =>
@@ -119,7 +111,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.UseCors(opt =>
 {
-    opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins(builder.Configuration["JWT:ClientUrl"].ToString(), "http://localhost:4200");
+    opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins(builder.Configuration["JWT:ClientUrl"]);
 });
 
 if (app.Environment.IsDevelopment())
@@ -136,8 +128,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.MapHub<ChatHub>("/chathub");
 
 #region ContextSeed
 using var scope = app.Services.CreateScope();

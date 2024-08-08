@@ -1,5 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Arial', sans-serif; 
+  }
+  h1, h2, h3 {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  p, li, a {
+    font-family: 'Arial', sans-serif;
+  }
 .card {
     background-color: white;
     border-radius: 8px;

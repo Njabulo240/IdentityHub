@@ -1,10 +1,11 @@
-﻿using Entities.Identity;
+﻿
+
+using IdentityHub.DTOs.Admin;
+using IdentityHub.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Shared;
-using Shared.DTO.Admin;
 
 namespace IdentityHub.Controllers
 {
@@ -26,56 +27,38 @@ namespace IdentityHub.Controllers
         [HttpGet("get-members")]
         public async Task<ActionResult<IEnumerable<MemberViewDto>>> GetMembers()
         {
-            var users = await _userManager.Users
+            var members = await _userManager.Users
                 .Where(x => x.UserName != SD.AdminUserName)
-                .ToListAsync();
-
-            var memberDtos = new List<MemberViewDto>();
-
-            foreach (var user in users)
-            {
-                var isLockedOut = await _userManager.IsLockedOutAsync(user);
-                var roles = await _userManager.GetRolesAsync(user);
-
-                memberDtos.Add(new MemberViewDto
+                // this is a projection
+                .Select(member => new MemberViewDto
                 {
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    DateCreated = user.DateCreated,
-                    IsLocked = isLockedOut,
-                    Roles = roles
-                });
-            }
+                    Id = member.Id,
+                    UserName = member.UserName,
+                    FirstName = member.FirstName,
+                    LastName = member.LastName,
+                    DateCreated = member.DateCreated,
+                    IsLocked = _userManager.IsLockedOutAsync(member).GetAwaiter().GetResult(),
+                    Roles = _userManager.GetRolesAsync(member).GetAwaiter().GetResult()
+                }).ToListAsync();
 
-            return Ok(memberDtos);
+            return Ok(members);
         }
 
         [HttpGet("get-member/{id}")]
         public async Task<ActionResult<MemberAddEditDto>> GetMember(string id)
         {
-            var user = await _userManager.Users
+            var member = await _userManager.Users
                 .Where(x => x.UserName != SD.AdminUserName && x.Id == id)
-                .FirstOrDefaultAsync();
+                .Select(m => new MemberAddEditDto
+                {
+                    Id = m.Id,
+                    UserName = m.UserName,
+                    FirstName = m.FirstName,
+                    LastName = m.LastName,
+                    Roles = string.Join(",", _userManager.GetRolesAsync(m).GetAwaiter().GetResult())
+                }).FirstOrDefaultAsync();
 
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            var roles = await _userManager.GetRolesAsync(user);
-
-            var memberDto = new MemberAddEditDto
-            {
-                Id = user.Id,
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Roles = string.Join(",", roles)
-            };
-
-            return Ok(memberDto);
+            return Ok(member);
         }
 
         [HttpPost("add-edit-member")]
@@ -85,7 +68,7 @@ namespace IdentityHub.Controllers
 
             if (string.IsNullOrEmpty(model.Id))
             {
-                // Adding a new member
+                // adding a new member
                 if (string.IsNullOrEmpty(model.Password) || model.Password.Length < 6)
                 {
                     ModelState.AddModelError("errors", "Password must be at least 6 characters");
@@ -105,7 +88,7 @@ namespace IdentityHub.Controllers
             }
             else
             {
-                // Editing an existing member
+                // editing an existing member
 
                 if (!string.IsNullOrEmpty(model.Password))
                 {
@@ -137,7 +120,7 @@ namespace IdentityHub.Controllers
 
             var userRoles = await _userManager.GetRolesAsync(user);
 
-            // Removing users' existing role(s)
+            // removing users' existing role(s)
             await _userManager.RemoveFromRolesAsync(user, userRoles);
 
             foreach (var role in model.Roles.Split(",").ToArray())
@@ -149,11 +132,14 @@ namespace IdentityHub.Controllers
                 }
             }
 
-            return Ok(new JsonResult(new
+            if (string.IsNullOrEmpty(model.Id))
             {
-                title = string.IsNullOrEmpty(model.Id) ? "Member Created" : "Member Edited",
-                message = $"{model.UserName} has been {(string.IsNullOrEmpty(model.Id) ? "created" : "updated")}"
-            }));
+                return Ok(new JsonResult(new { title = "Member Created", message = $"{model.UserName} has been created" }));
+            }
+            else
+            {
+                return Ok(new JsonResult(new { title = "Member Edited", message = $"{model.UserName} has been updated" }));
+            }
         }
 
         [HttpPut("lock-member/{id}")]

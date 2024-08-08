@@ -1,13 +1,14 @@
-﻿using Entities.Identity;
+﻿
+
 using Google.Apis.Auth;
+using IdentityHub.DTOs.Account;
+using IdentityHub.Models;
+using IdentityHub.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
-using Repository.Services;
-using Shared;
-using Shared.DTO.Account;
 using System.Security.Claims;
 using System.Text;
 
@@ -91,8 +92,7 @@ namespace IdentityHub.Controllers
 
             await _userManager.ResetAccessFailedCountAsync(user);
             await _userManager.SetLockoutEndDateAsync(user, null);
-            user.IsOnline = true;
-            // var jwtToken = await _jwtService.CreateJWT(user);
+
             return await CreateApplicationUserDto(user);
         }
 
@@ -339,16 +339,6 @@ namespace IdentityHub.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 JWT = await _jwtService.CreateJWT(user),
-                User = new UserDetailsDto
-                {
-
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    IsOnline = user.IsOnline,
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    Email = user.Email,
-                }
             };
         }
 
@@ -439,12 +429,5 @@ namespace IdentityHub.Controllers
             return true;
         }
         #endregion
-
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var result = this._userManager.Users.ToList();
-            return Ok(result);
-        }
     }
 }
