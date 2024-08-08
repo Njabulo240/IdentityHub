@@ -1,5 +1,4 @@
 # **Identity Hub** - ASPNET Core 8 / Angular 18 project template
-[![MIT license](https://cdn.rawgit.com/Njabulo240/tempa/7e9d69ad/MITLicense.png)](https://github.com/Njabulo240/IdentityHub/blob/master/LICENSE)
 
 **ASP.NET and Angular** (cross-platform ) secure and scalable **project template** for handling user accounts, authentication, and authorization.
 
