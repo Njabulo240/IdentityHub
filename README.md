@@ -6,7 +6,7 @@
 
 [LIVE DEMO](https://identityhub.azurewebsites.net)
 
-[![IdentityHub Demo](https://img.youtube.com/vi/ioVped1an0U/maxresdefault.jpg)](https://www.youtube.com/watch?v=ioVped1an0U)
+[![IdentityHub Demo](https://github.com/Njabulo240/IdentityHub/blob/master/identityhub.gif?raw=true)](https://www.youtube.com/watch?v=ioVped1an0U)
 
 ## features:
 *   ASP.NET Core 8 Web API &  Angular 18
