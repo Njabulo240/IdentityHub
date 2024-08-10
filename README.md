@@ -24,16 +24,6 @@
 *   Clone the [Git Repository](https://github.com/Njabulo240/IdentityHub.git) and edit with Visual Studio
 *	For bug reports open an [issue on github](https://github.com/Njabulo240/IdentityHub/issues)
 
-### Apply Migrations
-
-1. Open the **Package Manager Console** in Visual Studio.
-2. Set **IdentityHub** as the default project.
-3. Run the following command to update the database:
-
-    ```powershell
-    Update-Database
-    ```
-
 ## Login
 
 LOGIN WITH USERNAME OR EMAIL ADDRESS
