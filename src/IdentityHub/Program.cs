@@ -29,6 +29,7 @@ builder.Services.AddDbContext<Context>(options =>
 builder.Services.AddScoped<JWTService>();
 builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<ContextSeedService>();
+builder.Services.ConfigureSwagger();
 
 // defining our IdentityCore Service
 builder.Services.AddIdentityCore<User>(options =>
@@ -126,6 +127,11 @@ app.UseHttpsRedirection();
 // Authentication verifies the identity of a user or service, and authorization determines their access rights.
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSwagger();
+app.UseSwaggerUI(s =>
+{
+    s.SwaggerEndpoint("/swagger/v1/swagger.json", "IdentityHub API v1");
+});
 app.UseDefaultFiles();
 app.UseStaticFiles();
 app.MapControllers();
